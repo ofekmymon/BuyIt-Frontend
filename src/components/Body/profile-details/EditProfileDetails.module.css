@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid black;
+}
+.container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+}
+.labels {
+  display: block;
+  text-align: center;
+}
+.inputs {
+  text-align: center;
+}
+.btn {
+  background-color: rebeccapurple;
+  color: #ffff;
+  transition: all 0.2 ease;
+}
+.btn:hover {
+  background-color: rgb(85, 43, 128);
+  color: #d1d1d1;
+}
+.buttons {
+  width: 20%;
+  height: 30px;
+  align-self: center;
+  margin: 10px;
+  background-color: rebeccapurple;
+  color: #ffff;
+  transition: all 0.2 ease;
+}
+.buttons:hover {
+  background-color: rgb(85, 43, 128);
+  color: #d1d1d1;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 80%;
+    height: 80%;
+  }
+  .buttons {
+    width: 40%;
+  }
+}

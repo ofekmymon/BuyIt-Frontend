@@ -1,0 +1,30 @@
+.container {
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  color: #002b5b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid black;
+}
+.message {
+  text-align: center;
+  width: 90%;
+}
+.inputs {
+  width: 50%;
+}
+.btn {
+  width: 30%;
+  height: 12%;
+  background-color: rebeccapurple;
+  color: #ffff;
+  transition: all 0.2 ease;
+}
+.btn:hover {
+  background-color: rgb(85, 43, 128);
+  color: #d1d1d1;
+}

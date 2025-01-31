@@ -1,0 +1,114 @@
+.slidingContainer {
+  position: relative;
+  width: 92%;
+  height: 300px;
+  background-color: #f8f8f8;
+  border: 1px solid #32323243;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.containerWrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  width: fit-content;
+}
+.title {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 65px;
+  font-weight: normal;
+  font-size: larger;
+}
+
+.panel {
+  position: relative;
+  flex: 0 0 calc(100% / 7 - 20px);
+  margin: 0 10px;
+  background-color: #f3f3f3;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 210px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.panel:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.panelImage {
+  width: 100%;
+  height: 150px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 10px;
+}
+.panelName {
+  justify-self: start;
+  text-align: center;
+  font-size: small;
+  color: black;
+  font-family: "Roboto", sans-serif;
+}
+
+.slidingBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 0 10px;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.slidingBtn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.slidingBtn:hover:not(:disabled) {
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .noMobile {
+    display: none;
+  }
+  .slidingContainer {
+    height: 250px;
+    overflow-x: auto;
+  }
+  .panel {
+    height: 150px;
+    max-width: 50px;
+    flex: 0 0 calc(100% / 5 - 20px);
+  }
+  .panelImage {
+    height: 75px;
+    width: 100%;
+    margin-bottom: 3px;
+  }
+  .container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .panelName {
+    font-size: xx-small;
+    height: 60px;
+    font-family: "Times New Roman", Times, serif;
+  }
+}

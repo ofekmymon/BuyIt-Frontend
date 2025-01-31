@@ -1,0 +1,127 @@
+.container {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  background-color: rebeccapurple;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.logo {
+  width: 130px;
+  height: 59px;
+  margin: 2px;
+  margin-top: 10px;
+}
+
+.profile {
+  align-self: center;
+}
+
+.tag {
+  cursor: pointer;
+  position: relative;
+  color: black;
+  transition: all 0.2s ease-out;
+  text-decoration: none;
+}
+.tag:hover {
+  color: white;
+}
+.tag::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 1px;
+  width: 100%; /* Full width initially */
+  background-color: gold; /* Border color */
+  transition: width 0.2s ease, left 0.2s ease; /* Smooth animation */
+}
+.tag:active::after {
+  width: 50%;
+  left: 25%;
+}
+.welcomeContainer {
+  max-width: 110px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.myCart {
+  font-size: small;
+  height: 15px;
+  width: 100px;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+}
+.myCart > div {
+  line-height: 15px;
+  margin-left: 15%;
+}
+.cartLength {
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  font-weight: bold;
+  background-color: gold;
+  border-radius: 50%;
+  text-align: center;
+}
+.hamburgerContainer {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: #ffff 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.hamburger {
+  width: 80%;
+  height: 6%;
+  background-color: #ffff;
+}
+.mobile {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile {
+    display: block;
+  }
+  .container {
+    position: relative;
+  }
+  .welcome {
+    display: none;
+  }
+  .noMobile {
+    display: none;
+  }
+  .hamburgerContainer {
+    display: flex;
+  }
+  .tag::after {
+    width: 0;
+  }
+  .logo {
+    height: 30px;
+    width: 65px;
+  }
+  .cartContainer {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+}

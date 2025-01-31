@@ -1,0 +1,229 @@
+.container {
+  width: 95%;
+  height: 170vh;
+  margin: auto;
+  margin-top: 100px;
+  text-align: center;
+  background-color: #f8f8f8;
+  border: 1px solid black;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+.productWrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: start;
+}
+.productDetails {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.imageContainer {
+  width: 350px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imageWrap {
+  width: 93%;
+  height: 93%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.imageButtonContainer {
+  margin-top: 5px;
+  width: 30%;
+  height: 15px;
+  display: flex;
+  align-self: center;
+  justify-content: space-around;
+}
+.imageChanger {
+  width: 15px;
+  height: 100%;
+  border-radius: 50%;
+  background-color: black;
+  opacity: 0.3;
+  align-self: center;
+}
+.details {
+  width: 50%;
+  height: 250px;
+}
+.name {
+  text-align: center;
+  width: 100%;
+}
+.productDetail {
+  height: 150px;
+}
+.buyProductContainer {
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 200px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.priceInBuy {
+  margin: 0;
+}
+.addButton {
+  width: 100px;
+  height: 35px;
+}
+.addReviewButton,
+.addButton {
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: slateblue;
+  color: #f3f3f3;
+}
+.addButton:hover,
+.addReviewButton:hover {
+  background-color: rgb(88, 75, 174);
+}
+.soldBy {
+  font-size: small;
+}
+
+.ratingsContainer {
+  width: 92%;
+  height: 500px;
+}
+.ratingTitle {
+  width: 100%;
+  height: 25px;
+  background-color: rebeccapurple;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ratingTitle > p {
+  margin: 50px;
+}
+.ratingDisplay {
+  height: 275px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  border: 1px solid black;
+}
+.review {
+  flex-shrink: 0;
+  width: 95%;
+  min-height: 40px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 2px;
+}
+.addReviewContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: auto;
+}
+.addReviewButton {
+  align-self: center;
+}
+.addReviewWrap {
+  display: flex;
+  flex-direction: column;
+}
+.textAreaAndRating {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.reviewTextArea {
+  resize: none;
+  width: 50%;
+  height: 80px;
+  align-self: center;
+}
+.recommendations {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    min-height: 220vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .productWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .productDetails {
+    margin: 10px;
+    width: 90%;
+    min-height: 52%;
+    gap: 100px;
+    flex-direction: column;
+  }
+  .productDetail {
+    min-height: 150px;
+    max-height: 250px;
+    width: 100%;
+  }
+  .imageContainer {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+  }
+  .imageWrap {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* force a square ratio */
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  .details {
+    width: 90%;
+    height: 250px;
+  }
+  .buyProductContainer {
+    width: 90%;
+  }
+  .price {
+    text-align: start;
+  }
+  .ratingsContainer {
+    height: 300px;
+  }
+  .ratingDisplay {
+    height: 200px;
+  }
+  .imageButtonContainer {
+    width: 100%;
+  }
+  .textAreaAndRating {
+    display: flex;
+    flex-direction: column;
+  }
+  .reviewTextArea {
+    width: 99%;
+  }
+}

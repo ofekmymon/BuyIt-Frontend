@@ -1,0 +1,164 @@
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: #000000;
+}
+.container.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none; /* Disable interaction with the container */
+}
+.container.overlay .itemImage,
+.container.overlay .confButton {
+  opacity: 0.5; /* Optional: visually indicate that they are disabled */
+}
+.navbar {
+  display: flex;
+  box-sizing: border-box;
+  height: 40px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  text-align: center;
+  background-color: #5d2a8e;
+  color: #e7e7e7;
+}
+.navbar > * {
+  width: 100px;
+}
+.itemContainer {
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.itemImage {
+  width: 100px;
+  height: 90%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.1s ease;
+}
+.itemImage:hover {
+  opacity: 0.9;
+}
+
+.category {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.detail {
+  font-size: small;
+  max-width: 100px;
+  text-align: center;
+}
+.confButton {
+  background-color: rebeccapurple;
+  border-radius: 5px;
+  width: 100px;
+  height: 25px;
+  margin-right: 1px;
+  color: gold;
+  transition: all 0.2 ease;
+}
+.confButton:hover {
+  background-color: rgb(80, 41, 120);
+  color: rgb(221, 188, 0);
+}
+.confButton:active {
+  font-size: small;
+}
+.state {
+  height: 100%;
+  font-size: larger;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.windowContainer {
+  position: absolute;
+  background-color: #eadcf8;
+  border: 1px solid black;
+  border-radius: 10px;
+  top: 35%;
+  left: 20%;
+  width: 300px;
+  height: 150px;
+  z-index: 1001;
+  color: black;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  z-index: 1001;
+  pointer-events: all;
+}
+.buttonContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.btn {
+  border-radius: 5px;
+  background-color: rebeccapurple;
+  color: gold;
+  transition: all 0.2s ease;
+  width: 100px;
+}
+.btn:hover {
+  background-color: rgb(92, 47, 136);
+  color: rgb(231, 196, 0);
+}
+.btn:active {
+  font-size: small;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.055);
+}
+@media (max-width: 768px) {
+  .noMobile {
+    display: none;
+  }
+  .container {
+    font-size: small;
+  }
+  .itemContainer {
+    gap: 10px;
+  }
+  .itemImage {
+    width: 60px;
+    height: 60px;
+    aspect-ratio: 1/1;
+    border: 1px solid rgba(72, 72, 72, 0.533);
+  }
+
+  .detail {
+    font-size: x-small;
+  }
+  .windowContainer {
+    width: 80%;
+    height: 20%;
+    left: 10%;
+  }
+  .confButton {
+    height: 30px;
+    width: 60px;
+    font-size: x-small;
+  }
+  .confButton:active {
+    font-size: x-small;
+  }
+}

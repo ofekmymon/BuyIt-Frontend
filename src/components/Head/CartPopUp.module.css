@@ -1,0 +1,124 @@
+@keyframes popIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes popOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.container {
+  position: relative;
+  width: 250px;
+  height: 400px;
+  transform: translate(-50%, -50%) scale(0); /* shrunk for animation */
+  background-color: #9a52ff;
+  border: 1px solid black;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  animation: popIn 0.2s ease-out forwards;
+}
+.container.out {
+  animation: popOut 0.2s ease-out forwards;
+}
+.alert {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  border-bottom: 1px solid gold;
+  text-align: center;
+}
+.cartBody {
+  height: 90%;
+  width: 100%;
+  overflow-y: auto;
+  border-bottom: 1px solid black;
+  background-color: #5f31a0;
+}
+.cartItem {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  background-color: #f3f3f3;
+}
+.itemImage {
+  width: 60px;
+  height: 60px;
+}
+
+.summery {
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cartButton {
+  height: 100%;
+  width: 60px;
+  border: 0;
+  background-color: #72ddf7;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.cartButton:hover {
+  background-color: #5fb8ce;
+}
+.cartButton:active {
+  font-size: x-small;
+}
+.leftButton {
+  border-bottom-left-radius: 10px;
+}
+.rightButton {
+  border-bottom-right-radius: 10px;
+}
+.price {
+  margin: 0;
+}
+.productDelete {
+  cursor: pointer;
+}

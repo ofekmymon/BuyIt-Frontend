@@ -1,0 +1,61 @@
+.container {
+  position: relative;
+  width: 700px;
+  height: 500px;
+  margin: auto;
+  top: 100px;
+  background-color: blueviolet;
+  border: 1px solid black;
+  color: #ffffff;
+}
+.categoryBar {
+  position: relative;
+  top: 10%;
+  width: 19.9%;
+  height: 90%;
+  background-color: #6a1b9a;
+  border-right: 1px solid black;
+}
+.categoryBar > * {
+  border-bottom: 1px solid black;
+  height: 60px;
+  transition: all 0.2s ease;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+.categoryBar > *:hover {
+  background-color: rgb(127, 64, 189);
+}
+.navbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 99.7%;
+  height: 10%;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(145, 73, 217);
+  font-size: larger;
+  z-index: 4;
+}
+.componentContainer {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 80%;
+  height: 90%;
+  background-color: #eadcf8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .container {
+    top: 50px;
+    width: 90%;
+    height: 400px;
+  }
+}

@@ -1,0 +1,200 @@
+.container {
+  position: relative;
+  width: 80%;
+  min-height: 1200px;
+  top: 100px;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #e6f7ff;
+  border: 1px solid black;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: rgb(145, 73, 217);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+/* IMAGES */
+.imageContainer {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.imageInsertion {
+  width: 50%;
+}
+.imageLabel {
+  text-decoration: underline;
+  cursor: pointer;
+  color: black;
+  padding: 5px;
+  transition: color 0.2s ease;
+}
+.imageLabel:hover {
+  color: rgb(46, 46, 46);
+}
+.imageInput {
+  display: none;
+}
+.imagesDisplayed {
+  width: 80%;
+  height: 90%;
+  display: flex;
+  border: 1px solid black;
+  border-right: none;
+}
+.imageWrap {
+  position: relative;
+  width: 20%;
+  height: 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.image {
+  width: 100%;
+  height: 100%;
+}
+.imageDelete {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: -20%;
+  left: 45%;
+}
+/* NAME */
+.productName {
+  width: 50%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.nameInput {
+  width: 240px;
+  height: 20px;
+}
+/* CATEGORY */
+.categoryContainer {
+  height: 100px;
+  width: 50%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  flex-grow: 0;
+}
+/* TAG */
+.tagsContainer {
+  padding: 5px;
+  height: 200px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tagInput {
+  height: 20px;
+}
+.tagsDisplayed {
+  width: 50%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.tagContainer {
+  position: relative;
+  width: 20%;
+  height: 80%;
+  background-color: azure;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.tagDelete {
+  position: absolute;
+  bottom: -50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.tagDelete:active {
+  width: 18px;
+  height: 18px;
+}
+
+.enterBtn {
+  background-color: rebeccapurple;
+  color: #ffff;
+  border-radius: 5px;
+  margin: 10px;
+  transition: all 0.2 ease;
+}
+.enterBtn:hover {
+  background-color: rgb(85, 43, 128);
+  color: #d1d1d1;
+}
+/* DETAILS */
+.detailsContainer {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+.detailsInput {
+  resize: none;
+  width: 350px;
+  height: 100px;
+}
+.btn {
+  align-self: center;
+  width: 100px;
+  height: 40px;
+  background-color: rebeccapurple;
+  color: #ffff;
+  border-radius: 5px;
+  margin: 10px;
+  transition: all 0.2 ease;
+}
+.btn:hover {
+  background-color: rgb(85, 43, 128);
+  color: #d1d1d1;
+}
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+  .imageContainer {
+    text-align: center;
+    width: 100%;
+    flex-direction: column;
+  }
+  .imageInsertion {
+    width: 100%;
+    align-items: center;
+  }
+  .imagesDisplayed {
+    border: 1px solid black;
+  }
+  .tagsContainer {
+    flex-direction: column;
+    height: 100px;
+  }
+  .tagsDisplayed {
+    width: 100%;
+  }
+}

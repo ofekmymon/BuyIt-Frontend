@@ -1,0 +1,15 @@
+.headContainer {
+  margin-bottom: 40px;
+}
+
+.bodyContainer {
+  position: relative;
+  top: 120px;
+  width: 100%;
+  height: 90%;
+}
+
+.loading {
+  font-size: xx-large;
+  text-align: center;
+}
