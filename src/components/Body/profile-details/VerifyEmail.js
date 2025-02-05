@@ -38,6 +38,7 @@ export default function VerifyEmail(props) {
     const response = request.data.status;
     if (response === "success") {
       props.setState("Edit Personal Details");
+      useQuery.invalidateQueries(["user"]);
       console.log("good");
     } else {
       setError(request.data.message);

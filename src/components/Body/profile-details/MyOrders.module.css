@@ -47,6 +47,7 @@
   border-radius: 10px;
   cursor: pointer;
   transition: opacity 0.1s ease;
+  aspect-ratio: 1/1;
 }
 .itemImage:hover {
   opacity: 0.9;
@@ -66,7 +67,7 @@
 .confButton {
   background-color: rebeccapurple;
   border-radius: 5px;
-  width: 100px;
+  min-width: 100px;
   height: 25px;
   margin-right: 1px;
   color: gold;
