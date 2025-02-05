@@ -21,22 +21,26 @@
 }
 
 .tag {
+  display: inline-block;
   cursor: pointer;
   position: relative;
   color: black;
   transition: all 0.2s ease-out;
   text-decoration: none;
+  text-align: center;
 }
 .tag:hover {
   color: white;
 }
 .tag::after {
   content: "";
+  display: block;
+  margin: auto;
   position: absolute;
   bottom: -2px;
   left: 0;
   height: 1px;
-  width: 100%; /* Full width initially */
+  width: 100%;
   background-color: gold; /* Border color */
   transition: width 0.2s ease, left 0.2s ease; /* Smooth animation */
 }
@@ -45,7 +49,7 @@
   left: 25%;
 }
 .welcomeContainer {
-  max-width: 110px;
+  max-width: 200px;
   display: flex;
   justify-content: space-between;
 }
