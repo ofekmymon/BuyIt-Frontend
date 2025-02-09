@@ -73,7 +73,9 @@ export default function ProductPage() {
       return (
         <div
           key={index}
-          className={styles.imageChanger}
+          className={`${styles.imageChanger} ${
+            currentImage === index ? styles.currentImage : ""
+          }`}
           onClick={() => {
             setCurrentImage(index);
           }}

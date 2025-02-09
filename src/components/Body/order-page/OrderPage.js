@@ -2,7 +2,11 @@ import React from "react";
 import styles from "./OrderPage.module.css";
 import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { fetchCart, fetchProductData } from "../../../hooks/useCart";
+import {
+  fetchCart,
+  fetchProductData,
+  fetchGuestCart,
+} from "../../../hooks/useCart";
 import { fetchUser } from "../../../hooks/useUser";
 import { shortenNames } from "../../../hooks/useUtilities";
 import { useNavigate } from "react-router-dom";
@@ -17,9 +21,8 @@ export default function OrderPage() {
 
   const { data: cart = [], isFetching } = useQuery({
     queryKey: ["order-cart", user ? user.name : ""],
-    queryFn: () => fetchCart(user._id),
+    queryFn: () => (user ? fetchCart(user._id) : fetchGuestCart()),
     refetchOnWindowFocus: false,
-    enabled: !!user,
   });
 
   const { data: productData = [], isFetching: fetchingData } = useQuery({
@@ -32,7 +35,7 @@ export default function OrderPage() {
   });
 
   const [address, setAddress] = useState(user?.address ?? "");
-  const [checkedItems, setCheckedItems] = useState([]);
+  const [itemsToBuy, setItemsToBuy] = useState([]);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -44,24 +47,32 @@ export default function OrderPage() {
 
   const totalCost = () => {
     let totalCost = 0;
-    for (let i = 0; i < checkedItems.length; i++) {
-      let price = checkedItems[i].quantity * checkedItems[i].price;
+    for (let i = 0; i < itemsToBuy.length; i++) {
+      let price = itemsToBuy[i].quantity * itemsToBuy[i].price;
       totalCost += price;
     }
     return totalCost.toFixed(2);
   };
 
+  const addItemToBuy = (itemId, itemQuantity, price) => {
+    const itemCheck = itemsToBuy.filter((item) => item.id === itemId);
+    let temp = [...itemsToBuy];
+    if (itemCheck.length > 0) {
+      temp.splice(temp.indexOf(itemCheck[0]), 1);
+    }
+    temp.push({ id: itemId, quantity: itemQuantity, price });
+    setItemsToBuy(temp);
+  };
+
   const buyIt = async () => {
     // sends the products in the checkedlist to the db and deletes them from the cart.
-    if (!user || checkedItems.length <= 0) return;
+    if (!user || itemsToBuy.length <= 0) return;
     try {
       const responses = await Promise.all(
-        checkedItems.map(async (item) => {
-          console.log(item.images[0]);
-
+        itemsToBuy.map(async (item) => {
           const order = {
             user_id: user._id,
-            product_id: item._id,
+            product_id: item.id,
             address: address,
             quantity: item.quantity,
           };
@@ -102,6 +113,7 @@ export default function OrderPage() {
       setError("Unable to complete purchase. Please try again later");
     },
   });
+
   return (
     <div className={styles.container}>
       <div className={styles.paymentInfo}>
@@ -120,8 +132,8 @@ export default function OrderPage() {
               key={product._id}
               product={product}
               cartItem={cart[index]}
-              checkedItems={checkedItems}
-              setCheckedItems={setCheckedItems}
+              itemsToBuy={itemsToBuy}
+              setItemsToBuy={addItemToBuy}
             />
           ))
         )}
@@ -148,11 +160,11 @@ export default function OrderPage() {
       </div>
       <button
         className={styles.buyButton}
-        disabled={mutateOrder.isPending}
+        disabled={mutateOrder.isPending || !user}
         onClick={async () => {
           address.length < 5
             ? setError("Please enter a valid address")
-            : checkedItems.length > 0
+            : itemsToBuy.length > 0
             ? mutateOrder.mutate()
             : setError("Please select at least one item");
         }}
@@ -163,7 +175,20 @@ export default function OrderPage() {
   );
 }
 
-const CartItem = ({ product, cartItem, setCheckedItems }) => {
+const CartItem = ({ product, cartItem, setItemsToBuy }) => {
+  function createItemQuantityOptions(quantity) {
+    let options = [];
+    for (let i = 0; i < quantity + 1; i++) {
+      const option = (
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
+      options.push(option);
+    }
+    return options;
+  }
+
   return (
     <div className={styles.product}>
       <img src={product.images[0]} alt="" className={styles.productImage}></img>
@@ -178,21 +203,13 @@ const CartItem = ({ product, cartItem, setCheckedItems }) => {
           {cartItem.quantity}x
         </p>
       </div>
-      <input
-        className={styles.includeBox}
-        type="checkbox"
+      <select
         onChange={(e) => {
-          setCheckedItems((prevItems) => {
-            if (e.target.checked) {
-              return [
-                ...prevItems,
-                { ...product, quantity: cartItem.quantity },
-              ];
-            }
-            return prevItems.filter((item) => item._id !== product._id);
-          });
+          setItemsToBuy(product._id, e.target.value, product.price);
         }}
-      />
+      >
+        {createItemQuantityOptions(cartItem.quantity)}
+      </select>
     </div>
   );
 };
