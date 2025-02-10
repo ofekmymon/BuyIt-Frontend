@@ -42,7 +42,6 @@
 }
 .imageButtonContainer {
   margin-top: 5px;
-  max-width: 30%;
   height: 15px;
   display: flex;
   align-self: center;

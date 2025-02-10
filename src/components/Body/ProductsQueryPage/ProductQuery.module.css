@@ -45,6 +45,8 @@
   border-radius: 10px;
   border: 1px solid black;
   opacity: 1;
+  object-fit: contain;
+  background-color: white;
   box-sizing: border-box;
   transition: all 0.1s ease;
 }
