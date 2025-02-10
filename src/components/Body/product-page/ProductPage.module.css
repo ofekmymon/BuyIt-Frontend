@@ -37,7 +37,7 @@
   height: 93%;
   border: 1px solid black;
   border-radius: 5px;
-  object-fit: cover;
+  object-fit: contain;
   background-color: white;
 }
 .imageButtonContainer {
