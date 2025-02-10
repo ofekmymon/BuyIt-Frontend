@@ -55,7 +55,10 @@ export default function Signin() {
       const localCart = JSON.parse(localStorage.getItem("cart"));
       const request = await axios.post(
         "https://buyit-server.onrender.com/save-local-cart",
-        { local_cart: localCart, email }
+        {
+          local_cart: localCart,
+          email,
+        }
       );
       const response = await request.data;
       if (response.status === "failure") {

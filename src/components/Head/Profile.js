@@ -8,7 +8,6 @@ export default function Profile(props) {
   const navigate = useNavigate();
   const useQuery = useQueryClient();
   const user = useQuery.getQueryData(["user"]);
-  console.log(user);
 
   const handleOverlayClick = (e) => {
     // Close the modal if the overlay is clicked (not the profile content)

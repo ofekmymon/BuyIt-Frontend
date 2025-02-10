@@ -1,8 +1,7 @@
 .container {
-  margin: 0;
-  position: absolute;
-  top: 28%;
-  left: 40%;
+  position: relative;
+  margin: auto;
+  margin-top: 10%;
   width: 300px;
   height: 400px;
   display: flex;
@@ -49,6 +48,5 @@
 @media (max-width: 768px) {
   .container {
     width: 70%;
-    left: 15%;
   }
 }

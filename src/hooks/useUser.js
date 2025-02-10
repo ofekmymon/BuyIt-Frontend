@@ -1,5 +1,4 @@
 import axios from "axios";
-
 // function to ask server to validate refresh token:
 const validateRefreshToken = async () => {
   try {
@@ -91,14 +90,14 @@ export const fetchUser = async () => {
 };
 
 export const signout = async () => {
-  console.log("Logging out");
-
   localStorage.removeItem("access_token");
   const request = await axios.get("https://buyit-server.onrender.com/signout", {
     withCredentials: true,
   });
 
   if (request.data) {
+    localStorage.removeItem("access_token");
+    window.location.reload();
     return true;
   }
   return false;

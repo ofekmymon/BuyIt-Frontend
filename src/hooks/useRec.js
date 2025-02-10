@@ -28,7 +28,9 @@ export async function saveSearchHistory(user_id, searchValue) {
   try {
     const request = await axios.get(
       "https://buyit-server.onrender.com/add-search-history",
-      { params: { user_id, search_query: searchValue } }
+      {
+        params: { user_id, search_query: searchValue },
+      }
     );
     const response = await request.data;
     if (response.status === "success") return true;

@@ -30,8 +30,6 @@ export default function TopPanel(props) {
       }
     );
     const response = await request.data;
-    console.log(response);
-
     return await response.products;
   }
 

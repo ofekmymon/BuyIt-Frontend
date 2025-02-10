@@ -172,8 +172,6 @@ export default function MainPage() {
       ? // take top 10 ranked items by relevency
         randomGenerator(wantedPanels, temp.splice(0, 10))
       : randomGenerator(wantedPanels, temp);
-    console.log(randomList);
-
     return randomList.map((value, index) => {
       return (
         <TopPanel
