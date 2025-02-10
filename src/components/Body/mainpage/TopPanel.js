@@ -4,7 +4,7 @@ import styles from "./TopPanel.module.css";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import { shortenNames } from "../../../hooks/useUtilities";
+import { shortenNames, categoryToTitle } from "../../../hooks/useUtilities";
 export default function TopPanel(props) {
   const navigate = useNavigate();
   const category = props?.category;
@@ -60,15 +60,6 @@ export default function TopPanel(props) {
   if (isFetching || isLoading) {
     return <div className={styles.container}>Loading</div>;
   }
-
-  const categoryToTitle = (category) => {
-    const temp = category.replace("-", " ");
-    const tempList = temp.split(" ");
-    for (let i = 0; i < tempList.length; i++) {
-      tempList[i] = tempList[i].charAt(0).toUpperCase() + tempList[i].slice(1);
-    }
-    return tempList.join(" ");
-  };
 
   const handleTitle = () => {
     return (

@@ -24,3 +24,12 @@ export const functionIfEnter = (event, action) => {
     action(); // Trigger signin function when Enter key is pressed
   }
 };
+
+export const categoryToTitle = (category) => {
+  const temp = category.replaceAll("-", " ");
+  const tempList = temp.split(" ");
+  for (let i = 0; i < tempList.length; i++) {
+    tempList[i] = tempList[i].charAt(0).toUpperCase() + tempList[i].slice(1);
+  }
+  return tempList.join(" ");
+};

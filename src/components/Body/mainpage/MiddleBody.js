@@ -5,7 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import { shortenNames } from "../../../hooks/useUtilities";
+import { shortenNames, categoryToTitle } from "../../../hooks/useUtilities";
 import axios from "axios";
 export default function MiddleBody(props) {
   const [currentIndex, setIndex] = useState(0);
@@ -38,15 +38,6 @@ export default function MiddleBody(props) {
     refetchOnWindowFocus: false,
     enabled: !!props.category,
   });
-
-  const categoryToTitle = (category) => {
-    const temp = category.replace("-", " ");
-    const tempList = temp.split(" ");
-    for (let i = 0; i < tempList.length; i++) {
-      tempList[i] = tempList[i].charAt(0).toUpperCase() + tempList[i].slice(1);
-    }
-    return tempList.join(" ");
-  };
 
   return (
     <div className={styles.slidingContainer}>
