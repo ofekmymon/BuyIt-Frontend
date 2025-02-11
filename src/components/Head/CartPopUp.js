@@ -11,6 +11,7 @@ import {
   fetchGuestCart,
 } from "../../hooks/useCart";
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function CartPopUp(props) {
   const [active, setActive] = useState(true);
@@ -38,13 +39,10 @@ export default function CartPopUp(props) {
   const deleteCartItemFromServer = async (product) => {
     console.log(product);
 
-    const request = await axios.post(
-      "https://buyit-server.onrender.com/delete-cart-item",
-      {
-        email: user.email,
-        product,
-      }
-    );
+    const request = await axios.post(`${SERVER_URL}/delete-cart-item`, {
+      email: user.email,
+      product,
+    });
     const response = await request.data;
     if (response.status === "failure") {
       alert("Error, item could not be removed, Please try again later");

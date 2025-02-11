@@ -1,11 +1,11 @@
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export async function saveProductHistory(user_id, category) {
   try {
-    const request = await axios.get(
-      "https://buyit-server.onrender.com/save-product-history",
-      { params: { category: category, user_id } }
-    );
+    const request = await axios.get(`${SERVER_URL}/save-product-history`, {
+      params: { category: category, user_id },
+    });
     const response = await request.data;
     return response;
   } catch (e) {
@@ -26,12 +26,9 @@ export async function saveLocalProductHistory(category) {
 
 export async function saveSearchHistory(user_id, searchValue) {
   try {
-    const request = await axios.get(
-      "https://buyit-server.onrender.com/add-search-history",
-      {
-        params: { user_id, search_query: searchValue },
-      }
-    );
+    const request = await axios.get(`${SERVER_URL}/add-search-history`, {
+      params: { user_id, search_query: searchValue },
+    });
     const response = await request.data;
     if (response.status === "success") return true;
     return false;
@@ -52,35 +49,26 @@ export async function saveLocalSearchHistory(searchValue) {
 }
 
 export async function getSearchHistory(user_id) {
-  const request = await axios.get(
-    "https://buyit-server.onrender.com/fetch-search-history",
-    {
-      params: { user_id },
-    }
-  );
+  const request = await axios.get(`${SERVER_URL}/fetch-search-history`, {
+    params: { user_id },
+  });
   const response = await request.data;
 
   return await response.history;
 }
 
 export async function getProductHistory(user_id) {
-  const request = await axios.get(
-    "https://buyit-server.onrender.com/fetch-product-history",
-    {
-      params: { user_id },
-    }
-  );
+  const request = await axios.get(`${SERVER_URL}/fetch-product-history`, {
+    params: { user_id },
+  });
   const response = await request.data;
   return await response.history;
 }
 
 export async function getOrderHistoryTags(user_id) {
-  const request = await axios.get(
-    "https://buyit-server.onrender.com/order-history-tags",
-    {
-      params: { user_id },
-    }
-  );
+  const request = await axios.get(`${SERVER_URL}/order-history-tags`, {
+    params: { user_id },
+  });
   const response = await request.data;
   if (response.status === "success") {
     return response.tags;

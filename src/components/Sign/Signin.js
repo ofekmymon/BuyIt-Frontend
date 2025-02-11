@@ -4,6 +4,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { functionIfEnter } from "../../hooks/useUtilities";
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function Signin() {
   const [error, setError] = useState("");
@@ -16,7 +17,7 @@ export default function Signin() {
 
   const mutation = useMutation({
     mutationFn: async (user) =>
-      await axios.post("https://buyit-server.onrender.com/signin", user, {
+      await axios.post(`${SERVER_URL}/signin`, user, {
         withCredentials: true,
       }),
     mutationKey: ["signin"],
@@ -53,13 +54,10 @@ export default function Signin() {
     // if unlogged cart in localstorage was found, return it so it could be saved on the login
     if (localStorage.getItem("cart")) {
       const localCart = JSON.parse(localStorage.getItem("cart"));
-      const request = await axios.post(
-        "https://buyit-server.onrender.com/save-local-cart",
-        {
-          local_cart: localCart,
-          email,
-        }
-      );
+      const request = await axios.post(`${SERVER_URL}/save-local-cart`, {
+        local_cart: localCart,
+        email,
+      });
       const response = await request.data;
       if (response.status === "failure") {
         console.log("failed");

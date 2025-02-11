@@ -9,6 +9,7 @@ import {
   saveProductHistory,
   saveLocalProductHistory,
 } from "../../../hooks/useRec";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function ProductQuery() {
   const [sortOption, setSortOption] = useState("");
@@ -16,12 +17,9 @@ export default function ProductQuery() {
   const queryClient = useQueryClient();
   const user = queryClient.getQueryData(["user"]);
   const fetchProducts = async ({ pageParam = 1, category, sortOption }) => {
-    const request = await axios.get(
-      `https://buyit-server.onrender.com/products-query`,
-      {
-        params: { category, page: pageParam, sort_by: sortOption },
-      }
-    );
+    const request = await axios.get(`${SERVER_URL}/products-query`, {
+      params: { category, page: pageParam, sort_by: sortOption },
+    });
     return await request.data;
   };
 

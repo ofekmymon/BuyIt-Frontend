@@ -12,6 +12,7 @@ import {
 } from "../../../hooks/useRec";
 
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function ProductPage() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -23,12 +24,9 @@ export default function ProductPage() {
   // get product id from the url params
   const { id } = useParams();
   async function fetchProductData() {
-    const request = await axios.get(
-      "https://buyit-server.onrender.com/fetch-product",
-      {
-        params: { id },
-      }
-    );
+    const request = await axios.get(`${SERVER_URL}/fetch-product`, {
+      params: { id },
+    });
     return await request.data.product;
   }
 

@@ -4,7 +4,9 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { fetchProductData } from "../../../hooks/useCart";
 import { shortenNames } from "../../../hooks/useUtilities";
+
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function OrderHistory({ user }) {
   // DISPLAYS THE orderHistory HISTORY
@@ -12,10 +14,9 @@ export default function OrderHistory({ user }) {
 
   const fetchOrderHistory = async (userId) => {
     try {
-      const request = await axios.post(
-        "https://buyit-server.onrender.com/fetch-order-history",
-        { id: userId }
-      );
+      const request = await axios.post(`${SERVER_URL}/fetch-order-history`, {
+        id: userId,
+      });
       const response = await request.data;
       return response.orders;
     } catch {

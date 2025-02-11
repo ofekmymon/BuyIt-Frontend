@@ -10,6 +10,7 @@ import {
   saveSearchHistory,
 } from "../../../hooks/useRec";
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function SearchProducts() {
   const [searchParams] = useSearchParams();
@@ -48,18 +49,15 @@ export default function SearchProducts() {
     sortOption,
     searchValue,
   }) => {
-    const request = await axios.get(
-      "https://buyit-server.onrender.com/products-query",
-      {
-        params: {
-          category,
-          page: pageParam,
-          sort_by: sortOption,
-          search: searchValue,
-          per_page,
-        },
-      }
-    );
+    const request = await axios.get(`${SERVER_URL}/products-query`, {
+      params: {
+        category,
+        page: pageParam,
+        sort_by: sortOption,
+        search: searchValue,
+        per_page,
+      },
+    });
     return await request.data;
   };
 

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./OrderPage.module.css";
 import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+
 import {
   fetchCart,
   fetchProductData,
@@ -11,6 +12,7 @@ import { fetchUser } from "../../../hooks/useUser";
 import { shortenNames } from "../../../hooks/useUtilities";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function OrderPage() {
   const { data: user } = useQuery({
@@ -79,7 +81,7 @@ export default function OrderPage() {
           console.log(order);
 
           const response = await axios.post(
-            "https://buyit-server.onrender.com/upload-order",
+            `${SERVER_URL}/upload-order`,
             order
           );
           return await response.data;

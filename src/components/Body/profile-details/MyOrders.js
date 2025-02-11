@@ -6,18 +6,16 @@ import { shortenNames } from "../../../hooks/useUtilities";
 import { fetchProductData } from "../../../hooks/useCart";
 import { useState } from "react";
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 async function deleteOrder(userId, orderDetails) {
-  const request = await axios.post(
-    "https://buyit-server.onrender.com/delete-order",
-    {
-      user_id: userId,
-      order_id: orderDetails.order_id,
-      product_id: orderDetails.product_id,
-      quantity: orderDetails.quantity,
-      order_date: orderDetails.order_date,
-    }
-  );
+  const request = await axios.post(`${SERVER_URL}/delete-order`, {
+    user_id: userId,
+    order_id: orderDetails.order_id,
+    product_id: orderDetails.product_id,
+    quantity: orderDetails.quantity,
+    order_date: orderDetails.order_date,
+  });
   const response = await request.data;
   if (response.status !== "success") {
     alert("Error confirming order. Please try again later");
@@ -112,12 +110,9 @@ export default function MyOrders({ user }) {
   const [orderDetails, setOrderDetails] = useState("");
 
   const fetchOrders = async () => {
-    const request = await axios.post(
-      "https://buyit-server.onrender.com/fetch-orders",
-      {
-        id: user._id,
-      }
-    );
+    const request = await axios.post(`${SERVER_URL}/fetch-orders`, {
+      id: user._id,
+    });
     return await request.data.orders;
   };
   const {

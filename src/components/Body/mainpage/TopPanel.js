@@ -5,6 +5,8 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { shortenNames, categoryToTitle } from "../../../hooks/useUtilities";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
 export default function TopPanel(props) {
   const navigate = useNavigate();
   const category = props?.category;
@@ -15,7 +17,7 @@ export default function TopPanel(props) {
 
   async function queryItems() {
     const request = await axios.get(
-      "https://buyit-server.onrender.com/query-products-by-category",
+      `${SERVER_URL}/query-products-by-category`,
       { params: { category, number: 4 } }
     );
     return await request.data.result;
@@ -23,12 +25,9 @@ export default function TopPanel(props) {
 
   async function queryBySearch() {
     // search by searchvalue if no category
-    const request = await axios.get(
-      "https://buyit-server.onrender.com/products-query",
-      {
-        params: { search: searchValue, per_page: 4 },
-      }
-    );
+    const request = await axios.get(`${SERVER_URL}/products-query`, {
+      params: { search: searchValue, per_page: 4, rnd: true },
+    });
     const response = await request.data;
     return await response.products;
   }
@@ -36,7 +35,7 @@ export default function TopPanel(props) {
   async function queryByTags() {
     // search by the order history tags
     const request = await axios.post(
-      "https://buyit-server.onrender.com/search-products-with-tags",
+      `${SERVER_URL}/search-products-with-tags`,
       { tags: tags }
     );
     const response = await request.data;

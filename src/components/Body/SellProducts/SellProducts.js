@@ -3,6 +3,7 @@ import styles from "./SellProducts.module.css";
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { TiDelete } from "react-icons/ti";
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function SellProducts() {
   const [error, setError] = useState("");
@@ -106,7 +107,7 @@ export default function SellProducts() {
     });
 
     const response = await axios.post(
-      "https://buyit-server.onrender.com/upload-product",
+      `${SERVER_URL}/upload-product`,
       formData,
       {
         headers: { "Content-Type": "multipart/form-data" },

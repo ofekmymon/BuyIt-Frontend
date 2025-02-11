@@ -3,6 +3,7 @@ import axios from "axios";
 import styles from "./VerifyEmail.module.css";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function VerifyEmail(props) {
   const useQuery = useQueryClient();
@@ -14,10 +15,9 @@ export default function VerifyEmail(props) {
 
   const getCode = async () => {
     // asks for the code that gets sent via email.
-    const request = await axios.post(
-      "https://buyit-server.onrender.com/get-verification-code",
-      { email: user.email }
-    );
+    const request = await axios.post(`${SERVER_URL}/get-verification-code`, {
+      email: user.email,
+    });
 
     const response = request.data.status;
     if (response === "success") {
@@ -31,10 +31,10 @@ export default function VerifyEmail(props) {
 
   const verifyCode = async () => {
     // verifies the code and returns to the profile Details.
-    const request = await axios.post(
-      "https://buyit-server.onrender.com/verify-verification-code",
-      { email: user.email, code: code }
-    );
+    const request = await axios.post(`${SERVER_URL}/verify-verification-code`, {
+      email: user.email,
+      code: code,
+    });
     const response = request.data.status;
     if (response === "success") {
       props.setState("Edit Personal Details");

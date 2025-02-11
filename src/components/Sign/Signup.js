@@ -3,7 +3,9 @@ import styles from "./Signup.module.css";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+
 var validator = require("email-validator");
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function Signup() {
   //state to yell the user where they entered invalid info first
@@ -14,7 +16,7 @@ export default function Signup() {
   const redirectTo = searchParams.get("redirect") || "/";
   const mutation = useMutation({
     mutationFn: async (newUser) =>
-      await axios.post("https://buyit-server.onrender.com/signup", newUser),
+      await axios.post(`${SERVER_URL}/signup`, newUser),
   });
 
   function validateForm(event) {

@@ -5,6 +5,7 @@ import styles from "./ProductPage.module.css";
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { getAvgRating } from "../../../hooks/useUtilities";
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function ReviewHandler(props) {
   const [addReview, setAddReview] = useState(false);
@@ -39,10 +40,7 @@ export default function ReviewHandler(props) {
   const mutateReviews = useMutation({
     mutationFn: async (review) => {
       console.log(review);
-      await axios.post(
-        "https://buyit-server.onrender.com/upload-review",
-        review
-      );
+      await axios.post(`${SERVER_URL}/upload-review`, review);
     },
     onSuccess: () => {
       // refresh queries so you can see your own review

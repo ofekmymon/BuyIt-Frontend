@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { shortenNames, categoryToTitle } from "../../../hooks/useUtilities";
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 export default function MiddleBody(props) {
   const [currentIndex, setIndex] = useState(0);
   const visibleCount = 7;
@@ -27,7 +28,7 @@ export default function MiddleBody(props) {
   async function queryItems() {
     const category = props.category;
     const request = await axios.get(
-      "https://buyit-server.onrender.com/query-products-by-category",
+      `${SERVER_URL}/query-products-by-category`,
       { params: { category, number: 11 } }
     );
     return await request.data.result;

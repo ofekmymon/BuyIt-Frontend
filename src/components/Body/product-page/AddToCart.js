@@ -3,6 +3,8 @@ import styles from "./ProductPage.module.css";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
 export default function AddToCart(props) {
   const [quantity, setQuantity] = useState(1);
   const [error, setError] = useState("");
@@ -15,13 +17,10 @@ export default function AddToCart(props) {
       product_id: product._id,
     };
     if (user) {
-      const request = await axios.post(
-        "https://buyit-server.onrender.com/add-cart-item",
-        {
-          product: item,
-          email: user.email,
-        }
-      );
+      const request = await axios.post(`${SERVER_URL}/add-cart-item`, {
+        product: item,
+        email: user.email,
+      });
       const response = await request.data.status;
       if (response === "failure") {
         setError("Could not add product. Please try again later");

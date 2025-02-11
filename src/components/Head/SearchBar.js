@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./SearchBar.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { functionIfEnter } from "../../hooks/useUtilities";
 

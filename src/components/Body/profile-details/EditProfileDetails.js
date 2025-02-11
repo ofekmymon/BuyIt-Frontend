@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 import styles from "./EditProfileDetails.module.css";
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export default function EditProfileDetails() {
   const useQuery = useQueryClient();
@@ -28,7 +29,7 @@ export default function EditProfileDetails() {
       userValidationEmail: user.email,
     };
     const request = await axios.post(
-      "https://buyit-server.onrender.com/edit-user-details",
+      `${SERVER_URL}/edit-user-details`,
       editRequest
     );
     const response = await request.data.status;
