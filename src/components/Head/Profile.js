@@ -32,8 +32,8 @@ export default function Profile(props) {
     >
       <div className={`${styles.container} ${active ? "" : styles.out}`}>
         <h3 className={`${styles.title} `}>
-          Hello,
           {/* if loading return loading, after loading decide if user or signin */}
+          Hello,{" "}
           <Link
             to={`${user ? "/profile-details" : "/signin"}`}
             onClick={() => {

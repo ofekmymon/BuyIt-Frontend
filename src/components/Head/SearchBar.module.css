@@ -42,8 +42,17 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    width: 80%;
+    height: 30%;
+  }
+  .searchBar {
+    width: 70%;
+  }
   .categories {
-    content: "";
-    width: 50px;
+    width: 15%;
+  }
+  .searchButton {
+    width: 10%;
   }
 }

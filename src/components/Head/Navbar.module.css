@@ -8,6 +8,7 @@
   align-items: center;
   z-index: 10;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
 }
 .logo {
   width: 130px;
@@ -106,6 +107,7 @@
   }
   .container {
     position: relative;
+    height: 110px;
   }
   .welcome {
     display: none;
@@ -120,11 +122,12 @@
     width: 0;
   }
   .logo {
-    height: 30px;
-    width: 65px;
+    height: 40px;
+    width: 80px;
   }
+
   .cartContainer {
-    height: 100%;
+    width: 10%;
     align-items: center;
     justify-content: center;
   }

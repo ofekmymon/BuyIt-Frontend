@@ -4,7 +4,7 @@ import styles from "./MiddleBody.module.css";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { shortenNames, categoryToTitle } from "../../../hooks/useUtilities";
 import axios from "axios";
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
@@ -42,8 +42,9 @@ export default function MiddleBody(props) {
 
   return (
     <div className={styles.slidingContainer}>
-      <h3 className={styles.title}>{categoryToTitle(props.category)}</h3>
-
+      <Link style={{ color: "black" }} to={`/category-page/${props.category}`}>
+        <h3 className={styles.title}>{categoryToTitle(props.category)}</h3>
+      </Link>
       <button
         onClick={handlePrev}
         className={`${styles.slidingBtn} ${styles.noMobile}`}

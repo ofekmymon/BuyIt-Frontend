@@ -94,13 +94,13 @@
     overflow-x: auto;
   }
   .panel {
-    height: 150px;
-    max-width: 50px;
-    flex: 0 0 calc(100% / 5 - 20px);
+    height: 120px;
+    max-width: 100px;
+    flex: none;
   }
   .panelImage {
-    height: 75px;
-    width: 100%;
+    min-height: 50px;
+    aspect-ratio: 1/1;
     margin-bottom: 3px;
   }
   .container {

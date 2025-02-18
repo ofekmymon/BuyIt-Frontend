@@ -93,6 +93,22 @@ export default function Navbar() {
       <Link to={"/"}>
         <img src={Logo} alt="BuyIt" className={styles.logo} />
       </Link>
+      {/* MOBILE CART ONLY */}
+      <div
+        // click event on the cart container to open cart
+        className={`${styles.cartContainer} ${styles.mobile}`}
+        onClick={() => {
+          setCart(!cart);
+        }}
+      >
+        <IoCartOutline size={"40px"} />
+        <div className={`${styles.myCart} ${styles.noMobile}`}>
+          <div>My Cart</div>
+          <span className={`${styles.cartLength} `}>
+            {cartData?.length || 0}
+          </span>
+        </div>
+      </div>
       {<SearchBar />}
       <Link
         className={`${styles.tag} ${styles.noMobile}`}
@@ -102,7 +118,7 @@ export default function Navbar() {
       </Link>
       <div
         // click event on the cart container to open cart
-        className={styles.cartContainer}
+        className={`${styles.cartContainer} ${styles.noMobile}`}
         onClick={() => {
           setCart(!cart);
         }}
