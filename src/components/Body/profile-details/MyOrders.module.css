@@ -25,8 +25,8 @@
   justify-content: space-between;
   border-bottom: 1px solid black;
   text-align: center;
-  background-color: #5d2a8e;
-  color: #e7e7e7;
+  background-color: #ffffff;
+  color: black;
 }
 .navbar > * {
   width: 100px;
@@ -65,17 +65,16 @@
   text-align: center;
 }
 .confButton {
-  background-color: rebeccapurple;
+  background-color: #ff8a5b;
   border-radius: 5px;
   min-width: 100px;
   height: 25px;
   margin-right: 1px;
-  color: gold;
+  color: black;
   transition: all 0.2 ease;
 }
 .confButton:hover {
-  background-color: rgb(80, 41, 120);
-  color: rgb(221, 188, 0);
+  background-color: #e57d54;
 }
 .confButton:active {
   font-size: small;
@@ -90,7 +89,7 @@
 
 .windowContainer {
   position: absolute;
-  background-color: #eadcf8;
+  background-color: #fceade;
   border: 1px solid black;
   border-radius: 10px;
   top: 35%;
@@ -114,14 +113,13 @@
 }
 .btn {
   border-radius: 5px;
-  background-color: rebeccapurple;
-  color: gold;
+  background-color: #ea526f;
+  color: black;
   transition: all 0.2s ease;
   width: 100px;
 }
 .btn:hover {
-  background-color: rgb(92, 47, 136);
-  color: rgb(231, 196, 0);
+  background-color: #db4c66;
 }
 .btn:active {
   font-size: small;

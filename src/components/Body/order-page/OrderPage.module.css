@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 100px;
-  background-color: #f3f3f3;
+  background-color: #ffffff;
   border-radius: 10px;
   border: 1px solid black;
 }
@@ -19,7 +19,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: rebeccapurple;
+  background-color: #fceade;
+  border-bottom: 1px solid black;
 }
 .paymentTitle {
   position: absolute;
@@ -84,15 +85,14 @@
   height: 50px;
   font-size: x-large;
   margin-inline: auto;
-  background-color: rebeccapurple;
-  color: rgb(255, 228, 76);
+  background-color: #25ced1;
+  color: #ffffff;
   cursor: pointer;
   border-radius: 5px;
   transition: all 0.2s ease;
 }
 .buyButton:hover {
-  background-color: rgb(84, 42, 125);
-  color: gold;
+  background-color: #21b3b5;
 }
 .alert {
   display: flex;

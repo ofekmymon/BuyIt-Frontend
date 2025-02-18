@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./TopPanel.module.css";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { shortenNames, categoryToTitle } from "../../../hooks/useUtilities";
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -63,14 +63,17 @@ export default function TopPanel(props) {
   const handleTitle = () => {
     return (
       <div className={styles.title}>
-        {category ? categoryToTitle(category) : ""}
-        {isRec && isOrderHistory
-          ? "Based on your past orders"
-          : isRec && searchValue
-          ? "Based on your search history"
-          : isRec && !searchValue
-          ? " You Might Like"
-          : ""}
+        {isRec && isOrderHistory ? (
+          <div className={styles.title}>Based on your past orders</div>
+        ) : isRec && searchValue ? (
+          <div className={styles.title}>Based on your search history</div>
+        ) : isRec && !searchValue ? (
+          <Link className={styles.title} to={`/category-page/${category}`}>
+            {categoryToTitle(category)} you might like
+          </Link>
+        ) : (
+          ""
+        )}
       </div>
     );
   };

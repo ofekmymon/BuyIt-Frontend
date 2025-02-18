@@ -96,7 +96,7 @@ const ListedOrder = ({ product, orderItem, userName }) => {
         className={styles.itemImage}
         alt="Data not found"
         onClick={() => {
-          navigate(`/item-page/${product.product_id}`);
+          navigate(`/item-page/${product._id}`);
         }}
       ></img>
       <div className={`${styles.itemDetails} ${styles.category}`}>

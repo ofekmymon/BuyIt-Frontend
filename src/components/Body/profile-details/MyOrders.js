@@ -25,6 +25,7 @@ async function deleteOrder(userId, orderDetails) {
 
 const ListedOrder = ({ product, orderItem, setOrderDetails }) => {
   const navigate = useNavigate();
+  console.log(product);
 
   return (
     <div className={styles.itemContainer}>
@@ -33,7 +34,7 @@ const ListedOrder = ({ product, orderItem, setOrderDetails }) => {
         className={styles.itemImage}
         alt="Data not found"
         onClick={() => {
-          navigate(`/item-page/${product.product_id}`);
+          navigate(`/item-page/${product._id}`);
         }}
       ></img>
       <div className={`${styles.itemDetails} ${styles.category}`}>
@@ -159,7 +160,7 @@ export default function MyOrders({ user }) {
           <ListedOrder
             orderItem={orders[i]}
             product={order}
-            key={order._id}
+            key={`${order._id} ${i}`}
             setOrderDetails={setOrderDetails}
           />
         ))

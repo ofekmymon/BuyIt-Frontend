@@ -13,14 +13,14 @@
   resize: none;
 }
 .btn {
-  background-color: rebeccapurple;
+  background-color: #25ced1;
   width: 20%;
   height: 30px;
   color: #ffff;
   transition: all 0.2 ease;
 }
 .btn:hover {
-  background-color: rgb(85, 43, 128);
+  background-color: #23bdc0;
   color: #d1d1d1;
 }
 @media (max-width: 768px) {

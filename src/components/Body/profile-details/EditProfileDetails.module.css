@@ -23,26 +23,24 @@
   text-align: center;
 }
 .btn {
-  background-color: rebeccapurple;
-  color: #ffff;
+  background-color: #25ced1;
+  color: #ffffff;
   transition: all 0.2 ease;
 }
 .btn:hover {
-  background-color: rgb(85, 43, 128);
-  color: #d1d1d1;
+  background-color: #23bec1;
 }
 .buttons {
   width: 20%;
   height: 30px;
   align-self: center;
   margin: 10px;
-  background-color: rebeccapurple;
-  color: #ffff;
+  background-color: #25ced1;
+  color: #ffffff;
   transition: all 0.2 ease;
 }
 .buttons:hover {
-  background-color: rgb(85, 43, 128);
-  color: #d1d1d1;
+  background-color: #23bec1;
 }
 
 @media (max-width: 768px) {

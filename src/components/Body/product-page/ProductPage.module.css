@@ -4,7 +4,7 @@
   margin: auto;
   margin-top: 100px;
   text-align: center;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   border: 1px solid black;
   box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
@@ -35,7 +35,6 @@
 .imageWrap {
   width: 93%;
   height: 93%;
-  border: 1px solid black;
   border-radius: 5px;
   object-fit: contain;
   background-color: white;
@@ -95,12 +94,13 @@
 .addButton {
   text-decoration: none;
   border-radius: 10px;
-  background-color: slateblue;
+  background-color: #25ced1;
+  cursor: pointer;
   color: #f3f3f3;
 }
 .addButton:hover,
 .addReviewButton:hover {
-  background-color: rgb(88, 75, 174);
+  background-color: #24bdc0;
 }
 .soldBy {
   font-size: small;
@@ -113,11 +113,13 @@
 .ratingTitle {
   width: 100%;
   height: 25px;
-  background-color: rebeccapurple;
+  background-color: #25ced1;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .ratingTitle > p {
   margin: 50px;
@@ -129,6 +131,8 @@
   align-items: center;
   overflow-y: auto;
   border: 1px solid black;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 .review {
   flex-shrink: 0;

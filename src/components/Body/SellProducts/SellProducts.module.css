@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #e6f7ff;
+  background-color: #ffffff;
   border: 1px solid black;
   box-sizing: border-box;
   border-radius: 10px;
@@ -17,7 +17,7 @@
 .header {
   width: 100%;
   height: 50px;
-  background-color: rgb(145, 73, 217);
+  background-color: #25ced1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,7 +120,7 @@
   position: relative;
   width: 20%;
   height: 80%;
-  background-color: azure;
+  background-color: #ff8a5b;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -141,14 +141,14 @@
 }
 
 .enterBtn {
-  background-color: rebeccapurple;
+  background-color: #ea526f;
   color: #ffff;
   border-radius: 5px;
   margin: 10px;
   transition: all 0.2 ease;
 }
 .enterBtn:hover {
-  background-color: rgb(85, 43, 128);
+  background-color: #da4c66;
   color: #d1d1d1;
 }
 /* DETAILS */
@@ -166,14 +166,14 @@
   align-self: center;
   width: 100px;
   height: 40px;
-  background-color: rebeccapurple;
+  background-color: #ea526f;
   color: #ffff;
   border-radius: 5px;
   margin: 10px;
   transition: all 0.2 ease;
 }
 .btn:hover {
-  background-color: rgb(85, 43, 128);
+  background-color: #da4c66;
   color: #d1d1d1;
 }
 @media (max-width: 768px) {

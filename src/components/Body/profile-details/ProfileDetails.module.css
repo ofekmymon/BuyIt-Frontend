@@ -4,7 +4,7 @@
   height: 500px;
   margin: auto;
   top: 100px;
-  background-color: blueviolet;
+  background-color: #25ced1;
   border: 1px solid black;
   color: #ffffff;
 }
@@ -13,7 +13,7 @@
   top: 10%;
   width: 19.9%;
   height: 90%;
-  background-color: #6a1b9a;
+  background-color: #25ced1;
   border-right: 1px solid black;
 }
 .categoryBar > * {
@@ -25,7 +25,7 @@
   align-items: center;
 }
 .categoryBar > *:hover {
-  background-color: rgb(127, 64, 189);
+  background-color: #23bbbd;
 }
 .navbar {
   position: absolute;
@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(145, 73, 217);
+  background-color: #25ced1;
   font-size: larger;
   z-index: 4;
 }
@@ -47,7 +47,7 @@
   right: 0;
   width: 80%;
   height: 90%;
-  background-color: #eadcf8;
+  background-color: #fceade;
   display: flex;
   justify-content: center;
   align-items: center;

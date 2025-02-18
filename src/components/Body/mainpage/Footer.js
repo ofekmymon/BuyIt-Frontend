@@ -7,12 +7,12 @@ export default function EndBody() {
       <ul className={styles.list}>
         <li className={styles.listItem}>
           <a href="./" className={styles.link}>
-            About Us
+            About Us (doesnt work)
           </a>
         </li>
         <li className={styles.listItem}>
           <a href="./" className={styles.link}>
-            Newest Items
+            Newest Items (doesnt work)
           </a>
         </li>
         <li className={styles.listItem}>
