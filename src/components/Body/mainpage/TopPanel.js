@@ -72,7 +72,9 @@ export default function TopPanel(props) {
             {categoryToTitle(category)} you might like
           </Link>
         ) : (
-          ""
+          <Link className={styles.title} to={`/category-page/${category}`}>
+            {categoryToTitle(category)}
+          </Link>
         )}
       </div>
     );
