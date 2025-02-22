@@ -45,7 +45,6 @@ export const generateAccessToken = async () => {
         return true;
       }
       // if request failed
-      console.log("Here");
       signout();
     } catch (error) {
       console.log(error);

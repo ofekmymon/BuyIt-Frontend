@@ -148,9 +148,11 @@
     font-size: x-small;
   }
   .windowContainer {
+    position: absolute;
     width: 80%;
     height: 20%;
-    left: 10%;
+    top: 40%;
+    left: 40%;
   }
   .confButton {
     height: 30px;
