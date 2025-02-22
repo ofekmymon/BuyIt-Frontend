@@ -3,7 +3,7 @@ import styles from "./ProductQuery.module.css";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
-import { shortenNames } from "../../../hooks/useUtilities";
+import { shortenNames, categoryToTitle } from "../../../hooks/useUtilities";
 import { useInView } from "react-intersection-observer";
 import {
   saveProductHistory,
@@ -67,6 +67,9 @@ export default function ProductQuery() {
 
   return (
     <div className={styles.container}>
+      <h2 style={{ margin: "0", textAlign: "center" }}>
+        {categoryToTitle(category)}
+      </h2>
       <div className={styles.sortOptions}>
         <select
           className={styles.selectBy}
