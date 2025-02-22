@@ -138,9 +138,15 @@ export default function MyOrders({ user }) {
   // IF NO ORDERS DISPLAY A DIV THAT SAYS NO CURRENT ORDERS :)
   return (
     <div
+      id="overlay"
       className={`${styles.container} ${
         orderDetails !== "" ? styles.overlay : ""
       }`}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          setOrderDetails("");
+        }
+      }}
     >
       <div className={`${styles.navbar} ${styles.noMobile}`}>
         <div></div>
