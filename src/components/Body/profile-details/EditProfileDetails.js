@@ -34,6 +34,7 @@ export default function EditProfileDetails() {
     );
     const response = await request.data.status;
     if (response === "success") {
+      useQuery.invalidateQueries(["user"]);
       navigate("/");
     }
     setError("Could not update user details please try again later");
