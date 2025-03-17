@@ -84,8 +84,8 @@ export default function ReviewHandler(props) {
     if (product) {
       return product.ratings.map((review) => {
         return (
-          <div key={review.user} className={styles.review}>
-            <div> {review.user}</div>
+          <div key={review.username} className={styles.review}>
+            <div> {review.username}</div>
             <p>{review.details}</p>
             <p>{review.rating}</p>
           </div>
