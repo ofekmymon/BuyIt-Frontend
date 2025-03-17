@@ -75,6 +75,9 @@ export default function CartPopUp(props) {
       queryClient.invalidateQueries({
         queryKey: ["cart", user ? user.name : ""],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["navbar-cart", user ? user.name : ""],
+      });
     },
   });
 
