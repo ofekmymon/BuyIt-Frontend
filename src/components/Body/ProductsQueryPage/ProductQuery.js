@@ -17,7 +17,7 @@ export default function ProductQuery() {
   const queryClient = useQueryClient();
   const user = queryClient.getQueryData(["user"]);
   const fetchProducts = async ({ pageParam = 1, category, sortOption }) => {
-    const request = await axios.get(`${SERVER_URL}/products-query`, {
+    const request = await axios.get(`${SERVER_URL}/products/products-query`, {
       params: { category, page: pageParam, sort_by: sortOption },
     });
     return await request.data;

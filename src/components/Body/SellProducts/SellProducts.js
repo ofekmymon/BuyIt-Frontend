@@ -107,7 +107,7 @@ export default function SellProducts() {
     });
 
     const response = await axios.post(
-      `${SERVER_URL}/upload-product`,
+      `${SERVER_URL}/products/upload-product`,
       formData,
       {
         headers: { "Content-Type": "multipart/form-data" },

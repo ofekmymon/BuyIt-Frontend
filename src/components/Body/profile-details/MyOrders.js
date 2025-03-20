@@ -9,7 +9,7 @@ import axios from "axios";
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 async function deleteOrder(userId, orderDetails) {
-  const request = await axios.post(`${SERVER_URL}/delete-order`, {
+  const request = await axios.post(`${SERVER_URL}/orders/delete-order`, {
     user_id: userId,
     order_id: orderDetails.order_id,
     product_id: orderDetails.product_id,
@@ -111,7 +111,7 @@ export default function MyOrders({ user }) {
   const [orderDetails, setOrderDetails] = useState("");
 
   const fetchOrders = async () => {
-    const request = await axios.post(`${SERVER_URL}/fetch-orders`, {
+    const request = await axios.post(`${SERVER_URL}/orders/fetch-orders`, {
       id: user._id,
     });
     return await request.data.orders;

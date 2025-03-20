@@ -2,7 +2,7 @@ import axios from "axios";
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 export const fetchCart = async (id) => {
-  const response = await axios.post(`${SERVER_URL}/get-cart`, {
+  const response = await axios.post(`${SERVER_URL}/cart/get-cart`, {
     id,
   });
   return response.data.cart;
@@ -12,7 +12,7 @@ export const fetchProductData = async (cart) => {
   if (!cart || cart.length === 0) return [];
   const responses = await Promise.all(
     cart.map((item) =>
-      axios.get(`${SERVER_URL}/fetch-product`, {
+      axios.get(`${SERVER_URL}/products/fetch-product`, {
         params: { id: item.product_id },
       })
     )

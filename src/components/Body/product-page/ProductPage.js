@@ -24,7 +24,7 @@ export default function ProductPage() {
   // get product id from the url params
   const { id } = useParams();
   async function fetchProductData() {
-    const request = await axios.get(`${SERVER_URL}/fetch-product`, {
+    const request = await axios.get(`${SERVER_URL}/products/fetch-product`, {
       params: { id },
     });
     return await request.data.product;

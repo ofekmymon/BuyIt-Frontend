@@ -17,7 +17,7 @@ export default function TopPanel(props) {
 
   async function queryItems() {
     const request = await axios.get(
-      `${SERVER_URL}/query-products-by-category`,
+      `${SERVER_URL}/products/query-products-by-category`,
       { params: { category, number: 4 } }
     );
     return await request.data.result;
@@ -25,7 +25,7 @@ export default function TopPanel(props) {
 
   async function queryBySearch() {
     // search by searchvalue if no category
-    const request = await axios.get(`${SERVER_URL}/products-query`, {
+    const request = await axios.get(`${SERVER_URL}/products/products-query`, {
       params: { search: searchValue, per_page: 4, rnd: true },
     });
     const response = await request.data;
@@ -35,7 +35,7 @@ export default function TopPanel(props) {
   async function queryByTags() {
     // search by the order history tags
     const request = await axios.post(
-      `${SERVER_URL}/search-products-with-tags`,
+      `${SERVER_URL}/products/search-products-with-tags`,
       { tags: tags }
     );
     const response = await request.data;

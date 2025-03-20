@@ -17,7 +17,7 @@ export default function Signin() {
 
   const mutation = useMutation({
     mutationFn: async (user) =>
-      await axios.post(`${SERVER_URL}/signin`, user, {
+      await axios.post(`${SERVER_URL}/user/signin`, user, {
         withCredentials: true,
       }),
     mutationKey: ["signin"],
@@ -54,7 +54,7 @@ export default function Signin() {
     // if unlogged cart in localstorage was found, return it so it could be saved on the login
     if (localStorage.getItem("cart")) {
       const localCart = JSON.parse(localStorage.getItem("cart"));
-      const request = await axios.post(`${SERVER_URL}/save-local-cart`, {
+      const request = await axios.post(`${SERVER_URL}/cart/save-local-cart`, {
         local_cart: localCart,
         email,
       });

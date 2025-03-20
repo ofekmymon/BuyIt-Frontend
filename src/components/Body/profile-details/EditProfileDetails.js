@@ -29,7 +29,7 @@ export default function EditProfileDetails() {
       userValidationEmail: user.email,
     };
     const request = await axios.post(
-      `${SERVER_URL}/edit-user-details`,
+      `${SERVER_URL}/user/edit-user-details`,
       editRequest
     );
     const response = await request.data.status;

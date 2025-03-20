@@ -17,7 +17,7 @@ export default function AddToCart(props) {
       product_id: product._id,
     };
     if (user) {
-      const request = await axios.post(`${SERVER_URL}/add-cart-item`, {
+      const request = await axios.post(`${SERVER_URL}/cart/add-cart-item`, {
         product: item,
         email: user.email,
       });

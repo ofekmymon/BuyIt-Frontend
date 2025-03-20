@@ -28,7 +28,7 @@ export default function MiddleBody(props) {
   async function queryItems() {
     const category = props.category;
     const request = await axios.get(
-      `${SERVER_URL}/query-products-by-category`,
+      `${SERVER_URL}/products/query-products-by-category`,
       { params: { category, number: 11 } }
     );
     return await request.data.result;

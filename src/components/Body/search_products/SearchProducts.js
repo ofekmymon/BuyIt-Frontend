@@ -49,7 +49,7 @@ export default function SearchProducts() {
     sortOption,
     searchValue,
   }) => {
-    const request = await axios.get(`${SERVER_URL}/products-query`, {
+    const request = await axios.get(`${SERVER_URL}/products/products-query`, {
       params: {
         category,
         page: pageParam,

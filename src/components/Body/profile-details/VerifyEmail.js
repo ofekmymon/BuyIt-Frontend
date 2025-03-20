@@ -15,9 +15,12 @@ export default function VerifyEmail(props) {
 
   const getCode = async () => {
     // asks for the code that gets sent via email.
-    const request = await axios.post(`${SERVER_URL}/get-verification-code`, {
-      email: user.email,
-    });
+    const request = await axios.post(
+      `${SERVER_URL}/auth/get-verification-code`,
+      {
+        email: user.email,
+      }
+    );
 
     const response = request.data.status;
     if (response === "success") {
@@ -31,10 +34,13 @@ export default function VerifyEmail(props) {
 
   const verifyCode = async () => {
     // verifies the code and returns to the profile Details.
-    const request = await axios.post(`${SERVER_URL}/verify-verification-code`, {
-      email: user.email,
-      code: code,
-    });
+    const request = await axios.post(
+      `${SERVER_URL}/auth/verify-verification-code`,
+      {
+        email: user.email,
+        code: code,
+      }
+    );
     const response = request.data.status;
     if (response === "success") {
       props.setState("Edit Personal Details");

@@ -14,9 +14,12 @@ export default function OrderHistory({ user }) {
 
   const fetchOrderHistory = async (userId) => {
     try {
-      const request = await axios.post(`${SERVER_URL}/fetch-order-history`, {
-        id: userId,
-      });
+      const request = await axios.post(
+        `${SERVER_URL}/user-history/fetch-order-history`,
+        {
+          id: userId,
+        }
+      );
       const response = await request.data;
       return response.orders;
     } catch {

@@ -40,7 +40,7 @@ export default function ReviewHandler(props) {
   const mutateReviews = useMutation({
     mutationFn: async (review) => {
       console.log(review);
-      await axios.post(`${SERVER_URL}/upload-review`, review);
+      await axios.post(`${SERVER_URL}/review/upload-review`, review);
     },
     onSuccess: () => {
       // refresh queries so you can see your own review

@@ -81,7 +81,7 @@ export default function OrderPage() {
           console.log(order);
 
           const response = await axios.post(
-            `${SERVER_URL}/upload-order`,
+            `${SERVER_URL}/orders/upload-order`,
             order
           );
           return await response.data;

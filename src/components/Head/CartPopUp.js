@@ -39,7 +39,7 @@ export default function CartPopUp(props) {
   const deleteCartItemFromServer = async (product) => {
     console.log(product);
 
-    const request = await axios.post(`${SERVER_URL}/delete-cart-item`, {
+    const request = await axios.post(`${SERVER_URL}/cart/delete-cart-item`, {
       email: user.email,
       product,
     });

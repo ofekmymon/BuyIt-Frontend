@@ -16,7 +16,7 @@ export default function Signup() {
   const redirectTo = searchParams.get("redirect") || "/";
   const mutation = useMutation({
     mutationFn: async (newUser) =>
-      await axios.post(`${SERVER_URL}/signup`, newUser),
+      await axios.post(`${SERVER_URL}/user/signup`, newUser),
   });
 
   function validateForm(event) {
@@ -64,6 +64,8 @@ export default function Signup() {
         console.error("Error signing up:", error.response.data.detail);
         error.response.data.detail === "Email already registered"
           ? setError("Email already registered Please try to log in")
+          : error.response.data.detail === "Invalid Details"
+          ? setError("Error invalid details")
           : setError("Unexpected Error, please try to signup later");
       },
     });
