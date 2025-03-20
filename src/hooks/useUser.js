@@ -4,7 +4,6 @@ const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 // function to ask server to validate refresh token:
 const validateRefreshToken = async () => {
   try {
-    debugger;
     const request = await axios.get(
       `${SERVER_URL}/auth/validate-refresh-token`,
       {
@@ -25,7 +24,6 @@ const validateRefreshToken = async () => {
 };
 
 export const validateAccessToken = async () => {
-  debugger;
   const accessToken = localStorage.getItem("access_token");
   axios
     .post(`${SERVER_URL}/auth/validate-access-token`, accessToken)
@@ -39,7 +37,6 @@ export const validateAccessToken = async () => {
 };
 
 export const generateAccessToken = async () => {
-  debugger;
   const validRefresh = await validateRefreshToken();
   if (validRefresh) {
     try {
@@ -97,8 +94,10 @@ export const signout = async () => {
   });
 
   if (request.data) {
+    console.log(request.data);
+
     localStorage.removeItem("access_token");
-    window.location.reload();
+    // window.location.reload();
     return true;
   }
   return false;
