@@ -20,7 +20,7 @@ export default function Signup() {
   });
 
   function validateForm(event) {
-    // name between 3-12 chars
+    // name between 1-12 chars
     // email validated
     // password between 4-12 chars can have anything but spaces.
     event.preventDefault();
@@ -30,7 +30,7 @@ export default function Signup() {
     const password = form["password"].value;
     const confPassword = form["conf-password"].value;
 
-    if (name.length > 12 || name.length < 3) {
+    if (name.length > 12 || name.length < 1) {
       setInvalidation("username");
       return false;
     }
@@ -87,7 +87,7 @@ export default function Signup() {
         </label>
         {invalid === "username" ? (
           <div style={{ color: "red" }}>
-            Username must have between 3 to 12 characters
+            Username must have between 1 to 12 characters
           </div>
         ) : (
           ""
